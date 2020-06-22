@@ -5,12 +5,26 @@ class Counter extends Component {
     super();
     this.state = {
       count: 0,
-      increment: (count) => {
-        return ++count; },
-      decrement(count) {
-        return --count; }
     };
-  };
+  }
+
+  increment = () => {
+    this.setState( {
+      count: this.state.count + 1
+    }) 
+  }
+  decrement = () => {
+    this.setState( {
+      count: this.state.count - 1
+    }) 
+  }
+  reset = () => {
+    this.setState( {
+      count: this.state.count = 0
+    }) 
+  }
+
+
 
   render() {
     return (
@@ -18,8 +32,9 @@ class Counter extends Component {
         <div className='navbar'>Counter.js</div>
         <div className='counter'>
           <h1>{this.state.count}</h1>
-          <button type='button'>Increment</button>
-          <button type='button'>Decrement</button>
+          <button type='button' onClick={this.increment}>Increment</button>
+          <button type='button' onClick={this.decrement}>Decrement</button>
+          <button type='button' onClick={this.reset}>Reset</button>
         </div>
       </div>
     );
